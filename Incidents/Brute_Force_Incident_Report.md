@@ -4,7 +4,12 @@
 Brute-Force Login Attack on Windows
 
 ### 📅 Date & Time Detected:
-- **Date & Time**: June 20, 2025 – 15:42 UTC
+- June 27, 2025 – 17:40:14
+- June 27, 2025 – 17:40:13
+- June 27, 2025 – 17:40:11
+- June 27, 2025 – 15:19:57
+- June 27, 2025 – 14:44:20
+- June 27, 2025 – 14:26:02
 
 ### 📍 Location / System Affected: 
 Windows 10 VM - IP 192.168.1.101
