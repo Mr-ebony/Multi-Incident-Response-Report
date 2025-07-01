@@ -36,7 +36,7 @@ Provide a detailed narrative of the attack:
 
 ---
 
-# 🧠  3. MITRE ATT&CK Mapping (If Applicable)
+# 🧠  3. MITRE ATT&CK Mapping
 
 - **Tactic**: Credential Access
 - **Technique**: Brute Force – [T1110](https://attack.mitre.org/techniques/T1110/)
