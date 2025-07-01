@@ -30,9 +30,8 @@ Brief overview of what happened:
 
 # 📚 2. Attack Description 
 Provide a detailed narrative of the attack:
-- What was the attack vector?
-- What tools or commands were used by the attacker?
-- Include technical details.
+- The attack vector is the open Remote Desktop Protocol (RDP) port
+- The attacker used a Kali Linux virtual machine to brute-force a Windows RDP login. The tool used is Hydra because it supports RDP
 
 ---
 
