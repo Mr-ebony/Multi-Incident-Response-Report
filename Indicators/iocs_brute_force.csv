@@ -1,0 +1,13 @@
+Timestamp,Src_ip,Target_ip,Username,Even_type,EventCode,Port,Protocol,Status
+"27/06/2025
+17:40:14",192.168.100.2,192.168.100.3,samson,Brute_force,4625,3389,RDP,Failed
+"27/06/2025
+17:40:13",192.168.100.2,192.168.100.3,samson,Brute_force,4625,3389,RDP,Failed
+"27/06/2025
+17:40:11",192.168.100.2,192.168.100.3,samson,Brute_force,4625,3389,RDP,Failed
+"27/06/2025
+15:19:57",127.0.0.1,192.168.100.3,Samson,Brute_force,4625,3389,RDP,Failed
+"27/06/2025
+14:44:20",127.0.0.1,192.168.100.3,Samson,Brute_force,4625,3389,RDP,Failed
+"27/06/2025
+14:26:02",127.0.0.1,192.168.100.3,Samson,Brute_force,4625,3389,RDP,Failed
