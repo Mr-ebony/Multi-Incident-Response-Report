@@ -21,10 +21,9 @@ Windows 10 VM - IP 192.168.100.3
 # 🔎 1. Executive Summary
 
 Brief overview of what happened:
-- What type of incident occurred?
-- How was it detected?
-- What systems were affected?
-- Summary of impact.
+- A brute-force authentication attack targeting Windows Remote Desktop Protocol (RDP) occurred
+- Splunk was used to detect the attack
+- The Window VM system was affected
 
 ---
 
