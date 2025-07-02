@@ -71,16 +71,21 @@ Summarise key indicators found. Full CSV attached.
 ---
 # 🛠️  6. Containment & Remediation
 
-- Blocked attacker IP via Windows firewall
+- Blocked attacker IP via Windows firewall, Geo-IP blocking, or VPN requirements
 - Alerted administrator
 - Disabled the affected user account for review
 
 ---
 # 📈  7. Lessons Learned & Recommendations
 
-- Need to implement account lockout policy
+- Need to implement account lockout policy and the implementation of 2FA/MFA
 - Deploy better alerting for brute-force behaviour
 - Regular audit of EventCode 4625 trends
+- Harden remote access (VPN, bastion host)
+- Review and rotate credentials
+- Regular vulnerability scans and RDP honeypots for early warning
+- Patch Windows systems (especially older versions with weak RDP protections)
+- Password resets or audit trail reviews
 
 ---
 # 📎  8. Attachments
