@@ -26,6 +26,28 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 + Attempt to run it on your desktop (it will likely get a block event).
 + Open **Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Windows Defender → Operational**, look for logs from `Window Defender`
 ### Common IOCs that can be extracted from Windows Defender Malware Logs
-|______________ |
+| IoC Type             | Description / Example           | 
+|--------------------|---------------------|
+| Timestamp | When the malware was detected         |
+|  Threat Name   | Malware family name (e.g., Trojan:Win32/Emotet      |
+| Severity Name | Info/ Low/ Moderate/ High/ Severe         |
+| File Path    | Exact path of the infected file (e.g., C:\Users\User\AppData\Temp\badfile.exe      |
+| File Name | Name of the malicious file (badfile.exe)         |
+| SHA-256 or MD5    | Hash of the malicious file (if Defender captures it)      |
+| Action Name | Quarantined, Removed, Blocked. Allowed         |
+| Detection Source Name  | Real-time, Scheduled scan, On-demand Scan, etc.      |
+| Process Name | The process that dropped or executed the malware (Powershell.exe, cmd.exe, etc         |
+| Remediation Status    | Whether the threat was successfully removed or still active      |
+| User | Which user account triggered the detection         |
+| Device Name / Hostname    | The machine where the threat was found     |
+| IP Address (indirect) | Might be found if malware attempted outbound communication (Check Event ID 5156)         |
+
+### Event IDs to Watch For:
+| Event ID             | Meaning           | 
+|--------------------|---------------------|
+| 1116 | Malware detected         |
+| 1117   | Malware action taken      |
+| 1118 | Malware cleaned successfully         |
+| 5007    | Settings changed      |
      
   
