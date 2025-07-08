@@ -6,7 +6,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 
 ## Malware Execution Using EICAR (Safe Simulation)
 
-### STeps
+### Steps
 + **Open Browser on the Windows VM**
 + Visit the official EICAR test file site
   🔗 [https://www.eicar.org/download-anti-malware-tesfile/](https://www.eicar.org/download-anti-malware-tesfile/)
@@ -24,6 +24,8 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
   + Save it to your *Desktop or a dedicated test folder like `C:\EICAR_TEST`
   ✅ Done! You now have a test virus file.
 + Attempt to run it on your desktop (it will likely get a block event).
-+ Open **Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Windows Defender → Operational**, look for logs from `Window Defender` 
++ Open **Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Windows Defender → Operational**, look for logs from `Window Defender`
+### Common IOCs that can be extracted from Windows Defender Malware Logs
+|______________ |
      
   
