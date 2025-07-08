@@ -1,17 +1,17 @@
 # Multi-Incident-Response-Report
 
-## Brute-Force Attack Incident Response Report
+## 🔨 Brute-Force Attack Incident Response Report
 This project simulates a real-world incident response using a brute-force login attack. I investigated the incident using Splunk logs, documented key Indicators of Compromise (IoCs), and mapped the behaviour to MITRE ATT&CK.
 See `Brute_Force_incident_report.md` for the full report. Additionally, to see how a  Brute-force attack was done, please visit my [Splunk-threat-hunting-lab](https://github.com/Mr-ebony/Splunk-threat-hunting-lab.git) project.
 
-## Malware Execution Using EICAR (Safe Simulation)
+## 🦠 Malware Execution Using EICAR (Safe Simulation)
 
 ### Steps
 + **Open Browser on the Windows VM**
-+ Visit the official EICAR test file site
++ Visit the official EICAR test file site (Please see **Image 1**)
   🔗 [https://www.eicar.org/download-anti-malware-tesfile/](https://www.eicar.org/download-anti-malware-tesfile/)
-+ Download the `eicar.com` file - your antivirus or Windows Defender will likely alert or block it.
-  #### Alternative way to download if it is blocked (Manual Method)
++ Download the `eicar.com` file - your antivirus or Windows Defender will likely alert or block it (Please see **Image 1**).
+  #### Alternative way to download if it is blocked (Manual Method) (Please see **Image 2**)
   +  Open Notepad (or any text editor)
   +  Paste this exact string on a single line:
   +  ```spl
@@ -23,7 +23,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
     ```
   + Save it to your *Desktop or a dedicated test folder like `C:\EICAR_TEST`
   ✅ Done! You now have a test virus file.
-+ Attempt to run it on your desktop (it will likely get a block event).
++ Attempt to run it on your desktop (it will likely get a block event) (Please see **Image 4**).
 + Open **Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Windows Defender → Operational**, look for logs from `Window Defender`
 ### Common IOCs that can be extracted from Windows Defender Malware Logs
 | IoC Type             | Description / Example           | 
