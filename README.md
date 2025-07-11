@@ -31,7 +31,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | Timestamp | When the malware was detected         |
 |  Threat Name   | Malware family name (e.g., Trojan:Win32/Emotet      |
 | Severity Name | Info/ Low/ Moderate/ High/ Severe         |
-| File Path    | Exact path of the infected file (e.g., C:\Users\User\AppData\Temp\badfile.exe      |
+| File Path    | Exact path of the infected file (e.g., C:\Users\User\AppData\Temp\badfile.exe)      |
 | File Name | Name of the malicious file (badfile.exe)         |
 | SHA-256 or MD5    | Hash of the malicious file (if Defender captures it)      |
 | Action Name | Quarantined, Removed, Blocked. Allowed         |
