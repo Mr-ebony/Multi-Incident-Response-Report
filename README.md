@@ -29,7 +29,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | IoC Type             | Description / Example           | 
 |--------------------|---------------------|
 | Timestamp | When the malware was detected         |
-|  Threat Name   | Malware family name (e.g., Trojan:Win32/Emotet      |
+|  Threat Name   | Malware family name (e.g., Trojan:Win32/Emotet)      |
 | Severity Name | Info/ Low/ Moderate/ High/ Severe         |
 | File Path    | Exact path of the infected file (e.g., C:\Users\User\AppData\Temp\badfile.exe)      |
 | File Name | Name of the malicious file (badfile.exe)         |
@@ -49,5 +49,8 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | 1117   | Malware action taken      |
 | 1118 | Malware cleaned successfully         |
 | 5007    | Settings changed      |
+
+## 🧨Powershell Attack
+
      
   
