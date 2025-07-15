@@ -36,7 +36,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | SHA-256 or MD5    | Hash of the malicious file (if Defender captures it)      |
 | Action Name | Quarantined, Removed, Blocked. Allowed         |
 | Detection Source Name  | Real-time, Scheduled scan, On-demand Scan, etc.      |
-| Process Name | The process that dropped or executed the malware (Powershell.exe, cmd.exe, etc         |
+| Process Name | The process that dropped or executed the malware (Powershell.exe, cmd.exe, etc)         |
 | Remediation Status    | Whether the threat was successfully removed or still active      |
 | User | Which user account triggered the detection         |
 | Device Name / Hostname    | The machine where the threat was found     |
