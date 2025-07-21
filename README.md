@@ -37,7 +37,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | Action Name | Quarantined, Removed, Blocked. Allowed         |
 | Detection Source Name  | Real-time, Scheduled scan, On-demand Scan, etc.      |
 | Process Name | The process that dropped or executed the malware (Powershell.exe, cmd.exe, etc)         |
-| Remediation Status    | Whether the threat was successfully removed or still active      |
+| Remediation Status    | Whether the threat was successfully removed or is still active      |
 | User | Which user account triggered the detection         |
 | Device Name / Hostname    | The machine where the threat was found     |
 | IP Address (indirect) | Might be found if malware attempted outbound communication (Check Event ID 5156)         |
@@ -62,4 +62,32 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
   + Check **Windows Event Viewer** under (Please see **Image 3** within Screenshots/Malware):
     + ` Windows Event Viewer → Applications and Services Logs → Microsoft → Windows → Powershell → Operational`
     + Event ID: `4104` (script block logging)
+   
+### ✨Common IOCs from a PowerShell Suspicious Command (Blocked) Log
+| IoC Type             | Description / Example           | 
+|--------------------|---------------------|
+| Timestamp | Exact time the command was executed or blocked (from the log)         |
+|  User Account   | `user: DESKTOP\User1` - the account that ran the PowerShell Session      |
+| Hostname/Device | The name of the computer where the script ran         |
+| Script Block Content    | The actual **PowerShell command or script** (base64, obfuscated, etc.)     |
+| File Path (if any) | Path of dropped/executed file (e.g., `C:\Users\User\Downloads\malicious.ps1)          |
+| Network IOCs    | IPs, URLs, or domains inside the script (e.g., `http://malicious[.]com/payload)      |
+| Encoded Commands | Base64 strings used in commands like `powershell.exe -EncodedCommand...`         |
+| Parent Process  | What launched PowerShell (e.g., `winword.exe`, `cmd.exe`, `explorer.exe`      |
+| Process ID (PID) | Useful to correlate with other system or security events        |
+| Event ID    | e.g. 4104 (script block), 4105 (blocked execution), 4688 (process creation)      |
+| Command Line | Full command line arguments passed to `powershell.exe`         |
+| Obfuscation Indicators    | Usage of `Invoke-Expression`, `FromBase64String`, `IEX`, etc.     |
 
+### ✨Why These IOCs Matter
++ Helps detect **malicious PowerShell Usage**, which is common in:
+  + Lateral movement: The attacker already got into one computer, now they’re sneaking into others on the same network, like hopping from room to room in a house.
+  + Persistence: The attacker wants to remain hidden and maintain access even if the system reboots or security updates are applied.
+  + Command and control (C2): The attacker’s computer is like a boss giving orders. Your infected system talks back to the boss over the internet, receiving instructions.
+  + Payload delivery: The attacker drops the actual “bad stuff” (like a virus or ransomware) into the system, which is the weapon they use.
++ Can be used in:
+  + SIEM detection rules: These are automated rules set in a SIEM tool (like Splunk or Wazuh) to spot suspicious activity, like failed logins, PowerShell abuse, or malware behaviour, and raise alerts when something unusual happens.
+  + YARA rules: These are used to detect malware by matching patterns or strings in files, memory, or emails.
+  + Threat hunting queries: These are manual searches done by analysts to actively look for threats before alarms go off. They dig into logs or system behaviour to find things that look odd or hidden.
+  + Threat intelligence enrichment: This means adding extra context to raw data (like an IP address) to know if it’s bad, who owns it, what threat group uses it, etc.
+  
