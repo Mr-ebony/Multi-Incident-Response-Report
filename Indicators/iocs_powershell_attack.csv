@@ -1,0 +1,4 @@
+Timestamp,Threat Name,Severity Name,Command Name,Command Type,User,Shell ID,Task Category,Event ID
+"21/07/2025
+22:42:53",Suspicious script-Malware,Severe,Invoke-WebRequest,Cmdlet,DESKTOP-G6IINP6\Samson,Microsoft.PowerShell,Executing Pipeline,4104
+,,,,,,,,
