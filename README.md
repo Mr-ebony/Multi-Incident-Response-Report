@@ -70,8 +70,8 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 |  User Account   | `user: DESKTOP\User1` - the account that ran the PowerShell Session      |
 | Hostname/Device | The name of the computer where the script ran         |
 | Script Block Content    | The actual **PowerShell command or script** (base64, obfuscated, etc.)     |
-| File Path (if any) | Path of dropped/executed file (e.g., `C:\Users\User\Downloads\malicious.ps1)          |
-| Network IOCs    | IPs, URLs, or domains inside the script (e.g., `http://malicious[.]com/payload)      |
+| File Path (if any) | Path of dropped/executed file (e.g., C:\Users\User\Downloads\malicious.ps1)          |
+| Network IOCs    | IPs, URLs, or domains inside the script (e.g., http://malicious[.]com/payload)      |
 | Encoded Commands | Base64 strings used in commands like `powershell.exe -EncodedCommand...`         |
 | Parent Process  | What launched PowerShell (e.g., `winword.exe`, `cmd.exe`, `explorer.exe`      |
 | Process ID (PID) | Useful to correlate with other system or security events        |
@@ -118,3 +118,21 @@ I tried to simulate what a malicious program might do to elevate privileges by r
 + **Event ID 4672:** Special privileges assigned to new logon.
 + **Event ID 4688:** New process creation.
 + **Event ID 4624:** Logon event with elevated privileges.
+
+#### **Option 2: Use WinPEAS (Automated Escalation Scanner)**
+This tool scans for privilege escalation vectors.
+1. Download WinPEAS.exe from GitHub on your **Windows VM:**
+   https://github.com/carlospolop/PEASS-ng/releases/
+2. Run it as the low-privileged user (just double-click the file).
+3. Observe the scan output. It will show misconfigurations like:
+   - Services running with SYSTEM privileges
+   - AlwaysInstallElevated registry keys
+   - Weak folder permissions
+  
+### Step 3: View Events in Windows Event Viewer
+1. On Windows VM, Open Event Viewer → `windows Logs` → `security`.
+2. Look for:
+   + `4624`: Successful logon
+   + `4672`: Special privileges assigned
+   + `4688`: New process created (e.g., powershell.exe)
+   + `4697`: Service installed (if you simulate service abuse)
