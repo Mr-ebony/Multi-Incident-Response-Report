@@ -90,4 +90,31 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
   + YARA rules: These are used to detect malware by matching patterns or strings in files, memory, or emails.
   + Threat hunting queries: These are manual searches done by analysts to actively look for threats before alarms go off. They dig into logs or system behaviour to find things that look odd or hidden.
   + Threat intelligence enrichment: This means adding extra context to raw data (like an IP address) to know if it’s bad, who owns it, what threat group uses it, etc.
-  
+
+ ## 🧨Privilege Escalation Attempts
+### Step 1: Create a Low-Privilege User 
++ Open Command Prompt as **Administrator**
++ Run two simple commands:
+  - To create the user
+  - To assign the use to the "Users" group (default, non-admin group)
+ ```spl
+  net user samson1 Password /add
+  net localgroup "Users" samson1 /add
+  ```
+### Step 2: Simulate a Privilege Escalation Attack 
+I tried two beginner-friendly options: 
+#### **Option 1: Simulate UAC Bypass (Manual)**
+I tried to simulate what a malicious program might do to elevate privileges by running a known UAC bypass (just for lab practice).
+1. Log into the Windows VM as `samson1`.
+2. Open **Notepad** and paste this:
+ 
+  ```spl
+  Start-Process powershell -Verb runAs
+  ```
+3. Save it as `bypass.ps1`.
+4. Run it via PowerShell (right-click → Run with ***PowerShell***).
+🗝 This triggers a **UAC prompt**. If the attacker knows the admin password, they can elevate.
+#### What to watch for in the logs:
++ **Event ID 4672:** Special privileges assigned to new logon.
++ **Event ID 4688:** New process creation.
++ **Event ID 4624:** Logon event with elevated privileges.
