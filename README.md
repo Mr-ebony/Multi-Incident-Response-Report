@@ -136,3 +136,16 @@ This tool scans for privilege escalation vectors.
    + `4672`: Special privileges assigned
    + `4688`: New process created (e.g., powershell.exe)
    + `4697`: Service installed (if you simulate service abuse)
+
+### Step 4: Detect in Splunk
+Go to your Splunk dashboard and run queries like:
+
+ ```spl
+  index=wineventlog EventCode=4672 OR EventCode=4688 OR EventCode=4624
+ ```
+Or more targeted:
+
+```spl
+  index=wineventlog EventCode=4672 Account_Name="samson1"
+```
+We can create an alert for any time a standard user receives admin privileges.
