@@ -132,7 +132,7 @@ This tool scans for privilege escalation vectors.
   
 ### Step 3: View Events in Windows Event Viewer
 1. On Windows VM, Open Event Viewer → `windows Logs` → `security`.
-2. Look for (Please see Image 9-11 within Screenshots/Privilege_escalation ):
+2. Look for (Please see **Image 9-11** within Screenshots/Privilege_escalation ):
    + `4624`: Successful logon
    + `4672`: Special privileges assigned
    + `4688`: New process created (e.g., powershell.exe)
