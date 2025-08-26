@@ -96,11 +96,12 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 + Open Command Prompt as **Administrator**
 + Run two simple commands:
   - To create the user
-  - To assign the use to the "Users" group (default, non-admin group)
+  - To assign the use to the "Users" group (default, non-admin group) (Please see **Image 1** within Screenshots/Privilege_escalation )
  ```spl
   net user samson1 Password /add
   net localgroup "Users" samson1 /add
   ```
+**Note:** Image 2 and 3 show commands to view and delete a low-privilege user account. Also, Image 4 shows the created account.
 ### Step 2: Simulate a Privilege Escalation Attack 
 I tried two beginner-friendly options: 
 #### **Option 1: Simulate UAC Bypass (Manual)**
