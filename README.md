@@ -114,7 +114,7 @@ I tried to simulate what a malicious program might do to elevate privileges by r
   ```
 3. Save it as `bypass.ps1`.
 4. Run it via PowerShell (right-click → Run with ***PowerShell***).
-🗝 This triggers a **UAC prompt**. If the attacker knows the admin password, they can elevate.
+🗝 This triggers a **UAC prompt**. If the attacker knows the admin password, they can elevate privileges (please see **Image 5-6** within Screenshots/Privilege_escalation).
 #### What to watch for in the logs:
 + **Event ID 4672:** Special privileges assigned to new logon.
 + **Event ID 4688:** New process creation.
@@ -124,7 +124,7 @@ I tried to simulate what a malicious program might do to elevate privileges by r
 This tool scans for privilege escalation vectors.
 1. Download WinPEAS.exe from GitHub on your **Windows VM:**
    https://github.com/carlospolop/PEASS-ng/releases/
-2. Run it as the low-privileged user (just double-click the file).
+2. Run it as the low-privileged user (just double-click the file) (Please see **Image 7-8** within Screenshots/Privilege_escalation ).
 3. Observe the scan output. It will show misconfigurations like:
    - Services running with SYSTEM privileges
    - AlwaysInstallElevated registry keys
