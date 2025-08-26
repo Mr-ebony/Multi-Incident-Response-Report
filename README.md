@@ -101,7 +101,7 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
   net user samson1 Password /add
   net localgroup "Users" samson1 /add
   ```
-**Note:** Image 2 and 3 show commands to view and delete a low-privilege user account. Also, Image 4 shows the created account.
+**Note:** **Images 2 and 3** show commands to view and delete a low-privilege user account. Also, **Image 4** shows the created account.
 ### Step 2: Simulate a Privilege Escalation Attack 
 I tried two beginner-friendly options: 
 #### **Option 1: Simulate UAC Bypass (Manual)**
