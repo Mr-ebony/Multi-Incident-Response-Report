@@ -4,8 +4,7 @@
 Privilege Escalation Simulation
 
 ### 1. ℹ Incident Metadata
-- **Incident ID:** IR-2025-002  
-- **Date & Time Detected:** August 26, 2025, 15:12 UTC  
+- **Date & Time Detected:** August 26, 2025, 22:48:41 
 - **Reported By:** Window Event Viewer – “Suspicious Privilege Escalation”  
 - **Severity:** High  
 - **Status:** Closed (Simulated Lab Exercise)
@@ -23,9 +22,9 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 
 ### 3. 🏹 Attack Description
 - **Initial Access:** Low-privilege user account `samson1` was already present on the system.  
-- **Action Taken:** Attacker attempted to privilede escalation using:
-  1. Simulate UAC Bypass
-  2. Use WinPEAS (Automated Escalation Scanner)
+- **Action Taken:** Attacker attempted to privilege escalation using:
+  1. Simulate UAC Bypass (Please see **Image 5 - 6** within Screenshots/Privilege_escalation)
+  2. Use WinPEAS (Automated Escalation Scanner) (Please see **Image 7 - 8** within Screenshots/Privilege_escalation)
  **Goal:** Obtain elevated permissions and access to restricted system resources.
 
 ---
@@ -59,7 +58,7 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 
 - **Event Viewer Logs:**
 
-  - Security → Event ID 4728 confirmed analyst1 was added to the Administrators group.
+  - Security → Event ID 4728 confirmed samson1 was added to the Administrators group.
 
   - Event ID 4624 confirmed successful logon with analyst1.
 
