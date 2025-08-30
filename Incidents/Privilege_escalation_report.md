@@ -76,3 +76,14 @@ index=wineventlog EventCode=4672
 
 ```
 
+---
+
+### 7. 📜 Containment & Remediation
+- Removed the user analyst1 from the Administrators group.
+
+- Deleted unused low-privilege test accounts to reduce attack surface.
+
+- Enabled auditing for group membership changes (Event ID 4732).
+
+- Configured a Splunk real-time alert for Event ID 4728 and 4672.
+
