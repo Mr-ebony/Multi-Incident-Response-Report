@@ -28,6 +28,8 @@ The purpose of this simulation was to test detection capabilities, analyse relev
   2. Use WinPEAS (Automated Escalation Scanner)
  **Goal:** Obtain elevated permissions and access to restricted system resources.
 
+---
+
 ### 4. 🧠 MITRE ATT&CK Mapping
 
 
@@ -37,3 +39,7 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 | Privilege Escalation      | T1136.001      | Create Account: Local   |
 | Privilege Escalation       | T1098 | Account Manipulation     |
 | Defense Evasion   | T1070.004     | File Deletion (account cleanup)     |
+
+---
+
+### 5. 🧠 Indicators of Compromise (IOCs)
