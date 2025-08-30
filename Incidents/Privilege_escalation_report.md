@@ -55,7 +55,7 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 
 ---
 
-### 6. 📜 Detection & Logging Details
+### 6. 📄 Detection & Logging Details
 
 - **Event Viewer Logs:**
 
@@ -89,7 +89,7 @@ index=wineventlog EventCode=4672
 
 ---
 
-### 8. 🛠 Lessons Learned & Recommendations
+### 8. 📈 Lessons Learned & Recommendations
 - Privilege escalation is a common post-exploitation technique.
 
 - Monitoring **Windows Security Event Logs** (4728, 4672, 4732) is crucial for detection.
@@ -99,4 +99,10 @@ index=wineventlog EventCode=4672
 - Implement the **least privilege principle:** only admins should belong to Administrators.
 
 - Regularly audit group memberships.
+
+---
+
+### 9. 📈 Attachments
+- [IOC_PrivEsc.csv](hghg)
+- Screenshots of Event Viewer logs
 
