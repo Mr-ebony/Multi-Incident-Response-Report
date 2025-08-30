@@ -23,7 +23,7 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 
 ### 3. Attack Description
 - **Initial Access:** Low-privilege user account `samson1` was already present on the system.  
-- **Action Taken:** Attacker attempted to add the user to the **Administrators group** using:  
-
-  ```cmd
-  net localgroup Administrators analyst1 /add
+- **Action Taken:** Attacker attempted to privilede escalation using:
+  1. Simulate UAC Bypass
+  2. Use WinPEAS (Automated Escalation Scanner)
+ **Goal:** Obtain elevated permissions and access restricted system resources.
