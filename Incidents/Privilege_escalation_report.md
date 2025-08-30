@@ -66,7 +66,13 @@ The purpose of this simulation was to test detection capabilities, analyse relev
   - Event ID 4672 confirmed assignment of admin privileges.
 - **Splunk Queries:**
 
-```cmd
+```spl
 index=wineventlog EventCode=4728
 
 ```
+
+```spl
+index=wineventlog EventCode=4672
+
+```
+
