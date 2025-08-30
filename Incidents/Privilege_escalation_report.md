@@ -52,7 +52,8 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 | Usernames      | `samson1` (test accounts) |
 | Command Executed   | `net localgroup Administrators analyst1 /add`     |
 
-Note: Please refer to Indicators/iocs_PrivESC.csv
+**Note:** Please refer to Indicators/iocs_PrivESC.csv
+
 ---
 
 ### 6. 📄 Detection & Logging Details
