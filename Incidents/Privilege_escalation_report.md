@@ -52,7 +52,7 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 | Usernames      | `samson1` (test accounts) |
 | Command Executed   | `net localgroup Administrators analyst1 /add`     |
 
-**Note:** Please refer to Indicators/iocs_PrivESC.csv
+**Note:** Please refer to [Indicators/iocs_PrivESC.csv](https://github.com/Mr-ebony/Multi-Incident-Response-Report/blob/feda80e6854a7482dc82d773fa735b769ed362b3/Indicators/iocs_PrivESC.csv)
 
 ---
 
