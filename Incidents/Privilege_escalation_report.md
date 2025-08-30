@@ -10,5 +10,12 @@ Privilege Escalation Simulation
 - **Severity:** High  
 - **Status:** Closed (Simulated Lab Exercise) 
 
-### 2. Executive Summary
+### 2. 🔎 Executive Summary
+This incident report documents a simulated **Privilege Escalation attack** performed in a controlled home lab environment.  
+The attacker, using a compromised low-privilege account (`analyst1`), attempted to escalate privileges to gain administrative control.  
+Logs were collected from **Windows Event Viewer** and ingested into **Splunk** for analysis.  
+
+The purpose of this simulation was to test detection capabilities, analyze relevant security logs, and demonstrate the incident response process.
+
+---
 
