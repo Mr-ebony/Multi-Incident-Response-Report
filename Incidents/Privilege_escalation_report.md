@@ -42,4 +42,13 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 
 ---
 
-### 5. 🧠 Indicators of Compromise (IOCs)
+### 5. 📜 Indicators of Compromise (IOCs)
+
+| IOC Type | Value             |
+|----------------|--------------------|
+| Event ID     | 4728 (User added to group)      |
+| Event ID      | 4726 (User account deleted)   |
+| Event ID       | 4624 (Successful logon of `samson1`) |
+| Event ID   | 4672 (Special privileges assigned)   |
+| Usernames      | `samson1` (test accounts) |
+| Command Executed   | `net localgroup Administrators analyst1 /add`     |
