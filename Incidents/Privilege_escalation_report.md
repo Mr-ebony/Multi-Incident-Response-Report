@@ -52,3 +52,19 @@ The purpose of this simulation was to test detection capabilities, analyse relev
 | Event ID   | 4672 (Special privileges assigned)   |
 | Usernames      | `samson1` (test accounts) |
 | Command Executed   | `net localgroup Administrators analyst1 /add`     |
+
+---
+
+### 6. 📜 Detection & Logging Details
+
+- **Event Viewer Logs:**
+
+  - Security → Event ID 4728 confirmed analyst1 was added to the Administrators group.
+
+  - Event ID 4624 confirmed successful logon with analyst1.
+
+  - Event ID 4672 confirmed assignment of admin privileges.
+- **Splunk Queries:**
+  ```spl
+hhkh
+  ```
