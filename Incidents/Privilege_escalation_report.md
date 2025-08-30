@@ -78,7 +78,7 @@ index=wineventlog EventCode=4672
 
 ---
 
-### 7. 📜 Containment & Remediation
+### 7. 🛠 Containment & Remediation
 - Removed the user analyst1 from the Administrators group.
 
 - Deleted unused low-privilege test accounts to reduce attack surface.
@@ -86,4 +86,17 @@ index=wineventlog EventCode=4672
 - Enabled auditing for group membership changes (Event ID 4732).
 
 - Configured a Splunk real-time alert for Event ID 4728 and 4672.
+
+---
+
+### 8. 🛠 Lessons Learned & Recommendations
+- Privilege escalation is a common post-exploitation technique.
+
+- Monitoring **Windows Security Event Logs** (4728, 4672, 4732) is crucial for detection.
+
+- All privileged account changes should trigger alerts in SIEM.
+
+- Implement the **least privilege principle:** only admins should belong to Administrators.
+
+- Regularly audit group memberships.
 
