@@ -102,6 +102,6 @@ index=wineventlog EventCode=4672
 ---
 
 ### 9. 📈 Attachments
-- [IOC_PrivEsc.csv](hghg)
+- [IOC_PrivEsc.csv](Indicators/iocs_powershell_attack.csv)
 - Screenshots of Event Viewer logs (**Image 9 - 12** within Screenshots/Privilege_escalation)
 
