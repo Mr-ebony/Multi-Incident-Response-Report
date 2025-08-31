@@ -93,6 +93,8 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
   + Threat hunting queries: These are manual searches done by analysts to actively look for threats before alarms go off. They dig into logs or system behaviour to find things that look odd or hidden.
   + Threat intelligence enrichment: This means adding extra context to raw data (like an IP address) to know if it’s bad, who owns it, what threat group uses it, etc.
 
+---
+
  ## 🧨Privilege Escalation Attempts
 ### Step 1: Create a Low-Privilege User 
 + Open Command Prompt as **Administrator**
@@ -152,3 +154,38 @@ Or more targeted:
   index=wineventlog EventCode=4672 Account_Name="samson1"
 ```
 We can create an alert for any time a standard user receives admin privileges.
+
+---
+
+ ## 📨 Phishing Simulation (safe attachment)
+ 
+ ### What will be built 
+ + A **local SMTP “catcher”** so you can send/see test emails (no real delivery).
+ + A **fake invoice email** with a **safe attachment** and a **benign link**.
+ + Basic **telemetry**: Windows Event Logs → **Splunk**.
+We’ll use **smtp4dev** (free, tiny app) to catch emails on your Windows VM.
+
+### Step 0 - Prep logging on Windows (One-time)
+This will allow Splunk to see helpful details: 
+**1. Enable process Creation auditing**
++ Open: `Local Security Policy` → **Advanced Audit Policy Configuration** → **Detailed Tracking** → **Audit Process Creation** → check **Success**.
++ Then enable command-line logging:
+`Local Computer Policy → Administrative Templates → System → Audit Process Creation → Include command line in process creation events → Enabled`
+
+Or via commands (run as Admin CMD/PowerShell):
+
+```cmd
+auditpol /set /subcategory:"Process Creation" /success:enable /failure:enable
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
+ /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
+
+```
+**2. Confirm Splunk is ingesting Security logs**
++ In Splunk, `Settings → Add Data → Monitor → Local Event Logs` → select `WinEventLog:Security`.
+
+### Step 1 - Install a local email “catcher” (smtp4dev)
+
+1. Download and install **smtp4dev** on the **Windows VM** (default listens on `127.0.0.1:2525`).#
+2. Launch it; you’ll see an inbox UI in your browser/app.
+(Any email you send to `localhost:2525` will appear here — nothing leaves your machine.)
+--
