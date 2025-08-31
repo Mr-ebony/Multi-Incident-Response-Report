@@ -195,9 +195,36 @@ The option below is used:
 
 ### Step 3 - Track link clicks
 In addition to the option in step 2, I decided to spin up a tiny web server so you can see a request when the user clicks the link.
-- On Kali (or any box with Python):
+- On Kali (bash) (or any box with Python):
 ```bash
 python3 -m http.server 8000
 ```
 Note your Kali IP (e.g., 192.168.56.110). Use http://192.168.56.110:8000/pay in your email body.
 When the link is clicked, you’ll see a GET /pay line in the terminal. (If you’d rather host on Windows and you have Python installed there, same command works.)
+
+### Step 4 - Send the phishing email to your local inbox
+Use **PowerShell** on the **Windows VM** (as a normal user is fine):
+
+```powershell
+$Smtp = "127.0.0.1"
+$Port = 2525
+$To   = "victim@lab.local"
+$From = "IT Support <it@lab.local>"
+$Subj = "Urgent: Invoice Overdue"
+$Body = @"
+Hi,
+
+Please review the attached invoice and complete payment today:
+http://192.168.56.110:8000/pay
+
+Thanks,
+Accounts
+"@
+
+Send-MailMessage -From $From -To $To -Subject $Subj -Body $Body `
+  -SmtpServer $Smtp -Port $Port `
+  -Attachments "C:\Users\<you>\Documents\invoice.docx"
+```
+If `Send-MailMessage` is unavailable, you can attach without sending: just drag & drop the file into smtp4dev’s web UI (it supports test composition), or send via a tiny Python script — but the PowerShell cmdlet is usually present.
+
+### Step 5 - "Victim" action
