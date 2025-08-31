@@ -50,6 +50,8 @@ See `Brute_Force_incident_report.md` for the full report. Additionally, to see h
 | 1118 | Malware cleaned successfully         |
 | 5007    | Settings changed      |
 
+---
+
 ## 🧨Powershell Attack
 ### Steps
 + **Open PowerShell as Administrator on the Windows VM**
