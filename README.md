@@ -188,4 +188,16 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
 1. Download and install **smtp4dev** on the **Windows VM** (default listens on `127.0.0.1:2525`).#
 2. Launch it; you’ll see an inbox UI in your browser/app.
 (Any email you send to `localhost:2525` will appear here — nothing leaves your machine.)
--
+
+### Step 2 - Create the safe attachment
+The option below is used:
+- Create `invoice.docx` in Word with harmless text and a link (e.g., `http://127.0.0.1:8000/pay`).
+
+### Step 3 - Track link clicks
+In addition to the option in step 2, I decided to spin up a tiny web server so you can see a request when the user clicks the link.
+- On Kali (or any box with Python):
+```bash
+python3 -m http.server 8000
+```
+Note your Kali IP (e.g., 192.168.56.110). Use http://192.168.56.110:8000/pay in your email body.
+When the link is clicked, you’ll see a GET /pay line in the terminal. (If you’d rather host on Windows and you have Python installed there, same command works.)
