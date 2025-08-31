@@ -188,4 +188,4 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
 1. Download and install **smtp4dev** on the **Windows VM** (default listens on `127.0.0.1:2525`).#
 2. Launch it; you’ll see an inbox UI in your browser/app.
 (Any email you send to `localhost:2525` will appear here — nothing leaves your machine.)
---
+-
