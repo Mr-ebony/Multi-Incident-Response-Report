@@ -225,6 +225,58 @@ Send-MailMessage -From $From -To $To -Subject $Subj -Body $Body `
   -SmtpServer $Smtp -Port $Port `
   -Attachments "C:\Users\<you>\Documents\invoice.docx"
 ```
-If `Send-MailMessage` is unavailable, you can attach without sending: just drag & drop the file into smtp4dev’s web UI (it supports test composition), or send via a tiny Python script — but the PowerShell cmdlet is usually present.
+If `Send-MailMessage` is unavailable, you can attach without sending: just **drag & drop** the file into smtp4dev’s web UI (it supports test composition), or send via a tiny Python script — but the PowerShell cmdlet is usually present.
 
 ### Step 5 - "Victim" action
+1. Open smtp4dev → click your message → download/open the **attachment**.
+2. (Optional) Click the **link** in the email body.
+3. Take screenshots: the email, the attachment open (Word), macro banner (if `.docm`), and any web-server hit.
+
+### Step 6 - Review logs
+#### Event Viewer (Windows VM)
+- `Windows Logs → Security`
+  - **4688** — A new process has been created (e.g., `WINWORD.EXE`, `EXCEL.EXE`, `msedge.exe`/`chrome.exe`)
+  - (Optional, if enabled) 5156/5158 — Filtering Platform connection allowed/ended (network)
+- `Applications and Services Logs → Microsoft → Windows → Windows Defender → Operational`
+  - If Defender flags anything (it shouldn’t for our benign doc).
+
+#### Splunk searches
+Try these (adjust index/source to your setup):
+
+```spl
+
+source="WinEventLog:Security" EventCode=4688
+| rex "New Process Name:\s+(?<new_process>.*)"
+| rex "Creator Process Name:\s+(?<parent_process>.*)"
+| rex "Command Line:\s+(?<cmdline>.*)"
+| search new_process="*\\WINWORD.EXE" OR new_process="*\\EXCEL.EXE" OR new_process="*\\chrome.exe" OR new_process="*\\msedge.exe"
+| table _time Account_Name new_process parent_process cmdline ComputerName
+
+```
+If you clicked the link to your Kali server and enabled Filtering Platform logs:
+
+```spl
+
+source="WinEventLog:Security" (EventCode=5156 OR EventCode=5158)
+| search DestAddress="<KALI_IP>"
+| table _time SourceAddress DestAddress Application
+
+```
+If you later install Sysmon, you’ll get cleaner fields:
+
+- **Event ID 1 (Process Create), Event ID 3 (Network Connect) — highly recommended for richer detections.**
+
+
+### Step 7 - Add a simple Splunk alert (optional but nice)
+Detect Office apps launched from **Downloads** or **Temp** (common phishing behaviour):
+
+```spl
+source="WinEventLog:Security" EventCode=4688
+| rex "New Process Name:\s+(?<proc>.*)"
+| rex "Command Line:\s+(?<cmd>.*)"
+| search proc="*\\WINWORD.EXE" OR proc="*\\EXCEL.EXE" OR proc="*\\POWERPNT.EXE"
+| where like(cmd, "%\\Users\\%\\Downloads\\%") OR like(cmd, "%\\AppData\\Local\\Temp\\%")
+
+```
+Save As → **Alert** → every 5 minutes → trigger if results > 0.
+
