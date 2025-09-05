@@ -167,7 +167,7 @@ We’ll use **smtp4dev** (free, tiny app) to catch emails on your Windows VM.
 
 ### Step 0 - Prep logging on Windows (One-time)
 This will allow Splunk to see helpful details: 
-**1. Enable process Creation auditing**
+**1. Enable process Creation auditing (Please see Image 1-2 within Screenshots/Phishing)**
 + Open: `Local Security Policy` → **Advanced Audit Policy Configuration** → **Detailed Tracking** → **Audit Process Creation** → check **Success**.
 + Then enable command-line logging:
 `Local Group Policy Editor → Local Computer Policy → Administrative Templates → System → Audit Process Creation → Include command line in process creation events → Enabled`
@@ -180,7 +180,7 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
  /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
 
 ```
-**2. Confirm Splunk is ingesting Security logs**
+**2. Confirm Splunk is ingesting Security logs (Please see Image 3 within Screenshots/Phishing)**
 + In Splunk, `Settings → Add Data → Monitor → Local Event Logs` → select `WinEventLog:Security`.
 
 ### Step 1 - Install a local email “catcher” (smtp4dev)
