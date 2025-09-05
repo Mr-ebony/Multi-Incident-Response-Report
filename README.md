@@ -220,10 +220,9 @@ http://192.168.100.2:8000/pay
 Thanks,
 Accounts
 "@
-
-Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body `
-  -SmtpServer $Smtp -Port $Port `
-  -Attachments "C:\Users\<you>\Documents\invoice.docx"
+$Attachment = "C:\Home Lab\invoice.docx"
+#Send the email
+Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -SmtpServer $Smtp -Port $Port -Attachments $Attachment
 ```
 If `Send-MailMessage` is unavailable, you can attach without sending: just **drag & drop** the file into smtp4dev’s web UI (it supports test composition), or send via a tiny Python script — but the PowerShell cmdlet is usually present.
 
