@@ -170,7 +170,7 @@ This will allow Splunk to see helpful details:
 **1. Enable process Creation auditing**
 + Open: `Local Security Policy` → **Advanced Audit Policy Configuration** → **Detailed Tracking** → **Audit Process Creation** → check **Success**.
 + Then enable command-line logging:
-`Local Computer Policy → Administrative Templates → System → Audit Process Creation → Include command line in process creation events → Enabled`
+`Local Group Policy Editor → Local Computer Policy → Administrative Templates → System → Audit Process Creation → Include command line in process creation events → Enabled`
 
 Or via commands (run as Admin CMD/PowerShell):
 
