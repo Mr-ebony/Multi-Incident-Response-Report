@@ -221,7 +221,7 @@ Thanks,
 Accounts
 "@
 
-Send-MailMessage -From $From -To $To -Subject $Subj -Body $Body `
+Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body `
   -SmtpServer $Smtp -Port $Port `
   -Attachments "C:\Users\<you>\Documents\invoice.docx"
 ```
