@@ -183,13 +183,13 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
 **2. Confirm Splunk is ingesting Security logs (Please see Image 3 within Screenshots/Phishing)**
 + In Splunk, `Settings → Add Data → Monitor → Local Event Logs` → select `WinEventLog:Security`.
 
-### Step 1 - Install a local email “catcher” (smtp4dev)
+### Step 1 - Install a local email “catcher” (smtp4dev) (Please see Image 5 within Screenshots/Phishing)
 
 1. Download and install **smtp4dev** on the **Windows VM** (default listens on `127.0.0.1:2525`).#
 2. Launch it; you’ll see an inbox UI in your browser/app.
 (Any email you send to `localhost:2525` will appear here — nothing leaves your machine.)
 
-### Step 2 - Create the safe attachment
+### Step 2 - Create the safe attachment (Please see Image 5 within Screenshots/Phishing)
 The option below is used:
 - Create `invoice.docx` in Word with harmless text and a link (e.g., `http://192.168.100.2:8000/pay`).
 
