@@ -232,7 +232,7 @@ If `Send-MailMessage` is unavailable, you can attach without sending: just **dra
 3. Take screenshots: the email, the attachment open (Word), macro banner (if `.docm`), and any web-server hit.
 
 ### Step 6 - Review logs
-#### Event Viewer (Windows VM)
+#### Event Viewer (Windows VM) (Please see Image 13 within Screenshots/Phishing)
 - `Windows Logs → Security`
   - **4688** — A new process has been created (e.g., `WINWORD.EXE`, `EXCEL.EXE`, `msedge.exe`/`chrome.exe`)
   - (Optional, if enabled) 5156/5158 — Filtering Platform connection allowed/ended (network)
