@@ -193,7 +193,7 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
 The option below is used:
 - Create `invoice.docx` in Word with harmless text and a link (e.g., `http://192.168.0.66:8000/pay`).
 
-### Step 3 - Track link clicks
+### Step 3 - Track link clicks (Please see Image 6-7 within Screenshots/Phishing)
 In addition to the option in step 2, I decided to spin up a tiny web server so you can see a request when the user clicks the link.
 - On Kali (bash) (or any box with Python):
 ```bash
@@ -202,7 +202,7 @@ python3 -m http.server 8000
 Note your Kali IP (e.g., 192.168.0.66). Use http://192.168.0.66:8000/pay in your email body.
 When the link is clicked, you’ll see a GET /pay line in the terminal. (If you’d rather host on Windows and you have Python installed there, same command works.)
 
-### Step 4 - Send the phishing email to your local inbox
+### Step 4 - Send the phishing email to your local inbox (Please see Image 8-9 within Screenshots/Phishing)
 Use **PowerShell** on the **Windows VM** (as a normal user is fine):
 
 ```powershell
@@ -226,7 +226,7 @@ Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -SmtpServer $
 ```
 If `Send-MailMessage` is unavailable, you can attach without sending: just **drag & drop** the file into smtp4dev’s web UI (it supports test composition), or send via a tiny Python script — but the PowerShell cmdlet is usually present.
 
-### Step 5 - "Victim" action
+### Step 5 - "Victim" action (Please see Image 10-12 within Screenshots/Phishing)
 1. Open smtp4dev → click your message → download/open the **attachment**.
 2. (Optional) Click the **link** in the email body.
 3. Take screenshots: the email, the attachment open (Word), macro banner (if `.docm`), and any web-server hit.
