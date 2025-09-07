@@ -191,7 +191,7 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" ^
 
 ### Step 2 - Create the safe attachment (Please see Image 5 within Screenshots/Phishing)
 The option below is used:
-- Create `invoice.docx` in Word with harmless text and a link (e.g., `http://192.168.100.2:8000/pay`).
+- Create `invoice.docx` in Word with harmless text and a link (e.g., `http://192.168.0.66:8000/pay`).
 
 ### Step 3 - Track link clicks
 In addition to the option in step 2, I decided to spin up a tiny web server so you can see a request when the user clicks the link.
@@ -199,7 +199,7 @@ In addition to the option in step 2, I decided to spin up a tiny web server so y
 ```bash
 python3 -m http.server 8000
 ```
-Note your Kali IP (e.g., 192.168.100.2). Use http://192.168.100.2:8000/pay in your email body.
+Note your Kali IP (e.g., 192.168.0.66). Use http://192.168.0.66:8000/pay in your email body.
 When the link is clicked, you’ll see a GET /pay line in the terminal. (If you’d rather host on Windows and you have Python installed there, same command works.)
 
 ### Step 4 - Send the phishing email to your local inbox
@@ -207,7 +207,7 @@ Use **PowerShell** on the **Windows VM** (as a normal user is fine):
 
 ```powershell
 $Smtp = "127.0.0.1"
-$Port = 2525
+$Port = 25
 $To   = "client@lab.local"
 $From = "finance <finance@lab.local>"
 $Subject = "Urgent: Invoice Due Immediately"
@@ -215,7 +215,7 @@ $Body = @"
 Hi,
 
 Please review the attached invoice and complete payment today:
-http://192.168.100.2:8000/pay
+http://192.168.0.66:8000/pay
 
 Thanks,
 Accounts
